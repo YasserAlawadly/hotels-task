@@ -1,0 +1,1306 @@
+{
+  "info": {
+    "_postman_id": "hotel-search-api-tests",
+    "name": "Hotels Search API - Full Test Collection (English)",
+    "description": "Comprehensive test collection for Hotels Search API - includes basic search, price filtering, sorting, validation, and performance testing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. البحث الأساسي - Basic Search",
+      "description": "",
+      "item": [
+        {
+          "name": "بحث بسيط - القاهرة",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "بحث بسيط - دبي",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-15&check_out=2025-08-17",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-15"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-17"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "بحث بسيط - لندن",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=london&check_in=2025-08-20&check_out=2025-08-22",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "london"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-20"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-22"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. البحث المتقدم - Advanced Search",
+      "description": "",
+      "item": [
+        {
+          "name": "بحث كامل مع جميع المعاملات",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-15&check_out=2025-08-17&guests=2&min_price=100&max_price=300&sort_by=price",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-15"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-17"
+                },
+                {
+                  "key": "guests",
+                  "value": "2"
+                },
+                {
+                  "key": "min_price",
+                  "value": "100"
+                },
+                {
+                  "key": "max_price",
+                  "value": "300"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "price"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "بحث مع ترتيب حسب التقييم",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=paris&check_in=2025-08-10&check_out=2025-08-12&guests=4&min_price=150&max_price=400&sort_by=rating",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "paris"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "guests",
+                  "value": "4"
+                },
+                {
+                  "key": "min_price",
+                  "value": "150"
+                },
+                {
+                  "key": "max_price",
+                  "value": "400"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "rating"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. فلترة الأسعار - Price Filtering",
+      "description": "",
+      "item": [
+        {
+          "name": "فنادق رخيصة (أقل من 100)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&max_price=100",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "max_price",
+                  "value": "100"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "فنادق متوسطة السعر (100-300)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-15&check_out=2025-08-17&min_price=100&max_price=300",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-15"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-17"
+                },
+                {
+                  "key": "min_price",
+                  "value": "100"
+                },
+                {
+                  "key": "max_price",
+                  "value": "300"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "فنادق فاخرة (أكثر من 400)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=london&check_in=2025-08-20&check_out=2025-08-22&min_price=400",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "london"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-20"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-22"
+                },
+                {
+                  "key": "min_price",
+                  "value": "400"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "نطاق سعري ضيق (400-500)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-10&check_out=2025-08-12&min_price=400&max_price=500",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "min_price",
+                  "value": "400"
+                },
+                {
+                  "key": "max_price",
+                  "value": "500"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. الترتيب - Sorting",
+      "description": "",
+      "item": [
+        {
+          "name": "ترتيب حسب السعر (من الأقل للأعلى)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&sort_by=price",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "price"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "ترتيب حسب التقييم (من الأعلى للأقل)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=london&check_in=2025-08-10&check_out=2025-08-12&sort_by=rating",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "london"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "rating"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. عدد الضيوف - Guest Count",
+      "description": "",
+      "item": [
+        {
+          "name": "ضيف واحد",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&guests=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "guests",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "عائلة صغيرة (4 أشخاص)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-15&check_out=2025-08-17&guests=4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-15"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-17"
+                },
+                {
+                  "key": "guests",
+                  "value": "4"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "مجموعة كبيرة (10 أشخاص)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=london&check_in=2025-08-20&check_out=2025-08-22&guests=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "london"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-20"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-22"
+                },
+                {
+                  "key": "guests",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. فترات الإقامة - Date Ranges",
+      "description": "",
+      "item": [
+        {
+          "name": "إقامة قصيرة (ليلة واحدة)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-11",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-11"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "إقامة متوسطة (أسبوع)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-15&check_out=2025-08-22",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-15"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-22"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "إقامة طويلة (شهر)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=london&check_in=2025-08-01&check_out=2025-08-31",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "london"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-01"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-31"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. مواقع مختلفة - Different Locations",
+      "description": "",
+      "item": [
+        {
+          "name": "مدن عربية - الرياض",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=riyadh&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "riyadh"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "مدن أوروبية - باريس",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=paris&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "paris"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "مدن أوروبية - روما",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=rome&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "rome"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "موقع غير موجود (للاختبار)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=unknown_city&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "unknown_city"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. اختبار الأخطاء - Error Testing",
+      "description": "",
+      "item": [
+        {
+          "name": "بيانات ناقصة (بدون location)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "تاريخ دخول في الماضي",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2024-01-01&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "تاريخ خروج قبل تاريخ الدخول",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-12&check_out=2025-08-10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "نطاق سعري خاطئ (الحد الأدنى أكبر من الأقصى)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&min_price=200&max_price=100",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "min_price",
+                  "value": "200"
+                },
+                {
+                  "key": "max_price",
+                  "value": "100"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "ترتيب غير صحيح",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&sort_by=invalid_sort",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "invalid_sort"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "عدد ضيوف غير صحيح (صفر)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&guests=0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "guests",
+                  "value": "0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "عدد ضيوف مفرط (25)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&guests=25",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "guests",
+                  "value": "25"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. اختبار الأداء - Performance Testing",
+      "description": "",
+      "item": [
+        {
+          "name": "طلب أول لاختبار التخزين المؤقت",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=paris&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "paris"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "طلب ثاني (نفس البيانات - يجب أن يكون أسرع)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=paris&check_in=2025-08-10&check_out=2025-08-12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "paris"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "10. سيناريوهات واقعية - Real-world Scenarios",
+      "description": "",
+      "item": [
+        {
+          "name": "رحلة عمل (إقامة قصيرة، ضيف واحد، فندق متوسط)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=dubai&check_in=2025-08-15&check_out=2025-08-17&guests=1&min_price=100&max_price=250&sort_by=rating",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "dubai"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-15"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-17"
+                },
+                {
+                  "key": "guests",
+                  "value": "1"
+                },
+                {
+                  "key": "min_price",
+                  "value": "100"
+                },
+                {
+                  "key": "max_price",
+                  "value": "250"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "rating"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "شهر عسل (إقامة متوسطة، ضيفان، فندق فاخر)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=paris&check_in=2025-08-20&check_out=2025-08-27&guests=2&min_price=300&sort_by=rating",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "paris"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-20"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-27"
+                },
+                {
+                  "key": "guests",
+                  "value": "2"
+                },
+                {
+                  "key": "min_price",
+                  "value": "300"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "rating"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "رحلة عائلية (إقامة طويلة، عدة ضيوف، سعر معقول)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=london&check_in=2025-08-10&check_out=2025-08-20&guests=4&max_price=200&sort_by=price",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "london"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-20"
+                },
+                {
+                  "key": "guests",
+                  "value": "4"
+                },
+                {
+                  "key": "max_price",
+                  "value": "200"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "price"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "رحلة اقتصادية (أرخص الخيارات)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hotels/search?location=cairo&check_in=2025-08-10&check_out=2025-08-12&max_price=80&sort_by=price",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hotels",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "value": "cairo"
+                },
+                {
+                  "key": "check_in",
+                  "value": "2025-08-10"
+                },
+                {
+                  "key": "check_out",
+                  "value": "2025-08-12"
+                },
+                {
+                  "key": "max_price",
+                  "value": "80"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "price"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string",
+      "description": "Base URL for the Laravel application. Change this to your server URL if different."
+    }
+  ]
+}
