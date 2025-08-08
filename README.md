@@ -11,7 +11,7 @@ A RESTful API for multi-supplier hotel search and aggregation, built with Larave
 ## Getting Started
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/YasserAlawadly/hotels-task>
    cd hotels-task
    ```
 2. **Install dependencies:**
